@@ -24,8 +24,8 @@ const DEFAULT_ACCESS_STATE = {
   provider: ServiceProvider.OpenAI,
 
   // openai
-  openaiUrl: DEFAULT_OPENAI_URL,
-  openaiApiKey: "",
+  openaiUrl: "https://rd-oneapi.uniview.com",
+  openaiApiKey: "sk-KrjPCKcxX0cKofJ90fE077laC3D14157969b18B4E29fA0C1",
 
   // azure
   azureUrl: "",
@@ -47,8 +47,9 @@ const DEFAULT_ACCESS_STATE = {
   hideUserApiKey: false,
   hideBalanceQuery: false,
   disableGPT4: false,
-  disableFastLink: false,
-  customModels: "",
+  disableFastLink: true,
+  customModels:
+    "-all,Qwen2-72B-Instruct-GPTQ-Int4,Qwen1.5-32B-Chat-AWQ, CodeQwen1.5-7B-Chat",
   defaultModel: "",
 };
 

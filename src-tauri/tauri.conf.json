@@ -99,7 +99,7 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "http://igcode.uniview.com/g03595/prompts/-/blob/main/ChatGPT-Next-Web/latest.json"
+        "https://rd-nextchat.uniview.gq/ChatGPT-Next-Web/latest.json"
       ],
       "dialog": false,
       "windows": {
