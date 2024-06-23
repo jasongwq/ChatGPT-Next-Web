@@ -98,6 +98,8 @@ import { ExportMessageModal } from "./exporter";
 import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
 import { MultimodalContent } from "../client/api";
+import { listen } from "@tauri-apps/api/event";
+import { readText } from "@tauri-apps/api/clipboard";
 
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
   loading: () => <LoadingIcon />,
@@ -729,6 +731,23 @@ function _Chat() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(measure, [userInput]);
 
+  useEffect(() => {
+    const unlisten = listen("activate_input_field", async () => {
+      const clipboardText = await readText();
+      if (clipboardText !== null) {
+        // console.log(clipboardText)
+        setUserInput(clipboardText);
+      } else {
+        console.warn("Clipboard text was null");
+      }
+      inputRef.current?.focus();
+    });
+
+    return () => {
+      unlisten.then((f) => f());
+    };
+  }, []);
+
   // chat commands shortcuts
   const chatCommands = useChatCommand({
     new: () => chatStore.newSession(),
@@ -797,7 +816,9 @@ function _Chat() {
         setUserInput("");
       } else {
         // or fill the prompt
-        setUserInput(prompt.content + userInput.slice(0, slashOffsetRef.current));
+        setUserInput(
+          prompt.content + userInput.slice(0, slashOffsetRef.current),
+        );
       }
       inputRef.current?.focus();
     }, 30);

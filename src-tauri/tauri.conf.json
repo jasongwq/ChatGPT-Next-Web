@@ -14,6 +14,9 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "globalShortcut": {
+        "all":true
+      },
       "shell": {
         "all": false,
         "open": true
@@ -51,6 +54,10 @@
       "notification": {
         "all": true
       }
+    },
+    "systemTray": {
+      "iconPath": "../public/favicon-16x16.png",
+      "iconAsTemplate": true
     },
     "bundle": {
       "active": true,
@@ -92,13 +99,13 @@
     "updater": {
       "active": true,
       "endpoints": [
-        "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web/releases/latest/download/latest.json"
+        "http://igcode.uniview.com/g03595/prompts/-/blob/main/ChatGPT-Next-Web/latest.json"
       ],
       "dialog": false,
       "windows": {
         "installMode": "passive"
       },
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IERFNDE4MENFM0Y1RTZBOTQKUldTVWFsNC96b0JCM3RqM2NmMnlFTmxIaStRaEJrTHNOU2VqRVlIV1hwVURoWUdVdEc1eDcxVEYK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDIwQkNDMjU2MDVFQjZEMzQKUldRMGJlc0ZWc0s4SU91SWsyeFBPOThUb0NIVGoya0VGbzE2S3RSS2t1MVh6b3ZjQnNES1ZESnUK"
     },
     "windows": [
       {
